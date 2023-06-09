@@ -1,47 +1,67 @@
 #pragma once
 #include <cmath>
 
-struct vec {
-    double data[2] = {0};
-    inline double& operator[](const int i)       { return data[i]; }
-    inline double  operator[](const int i) const { return data[i]; }
+template<int n> struct vec {
+    double data[n] = {0};
+    double& operator[](const int i)       { return data[i]; }
+    double  operator[](const int i) const { return data[i]; }
     double norm2() const { return *this * *this; }
     double norm()  const { return std::sqrt(norm2()); }
-	inline double& x() {return data[0];}
-	inline double& y() {return data[1];}
-	friend double operator*(const vec& lhs, const vec& rhs) {
-		double ret = 0;
-		for (int i=2; i--; ret+=lhs[i]*rhs[i]);
-			return ret;
-	}
 };
 
-vec operator+(const vec& lhs, const vec& rhs) {
-    vec ret = lhs;
-    for (int i=2; i--; ret[i]+=rhs[i]);
+template<int n> double operator*(const vec<n>& lhs, const vec<n>& rhs) {
+    double ret = 0;
+    for (int i=n; i--; ret+=lhs[i]*rhs[i]);
     return ret;
 }
 
-vec operator-(const vec& lhs, const vec& rhs) {
-    vec ret = lhs;
-    for (int i=2; i--; ret[i]-=rhs[i]);
+template<int n> vec<n> operator+(const vec<n>& lhs, const vec<n>& rhs) {
+    vec<n> ret = lhs;
+    for (int i=n; i--; ret[i]+=rhs[i]);
     return ret;
 }
 
-vec operator*(const double& rhs, const vec &lhs) {
-    vec ret = lhs;
-    for (int i=2; i--; ret[i]*=rhs);
+template<int n> vec<n> operator-(const vec<n>& lhs, const vec<n>& rhs) {
+    vec<n> ret = lhs;
+    for (int i=n; i--; ret[i]-=rhs[i]);
     return ret;
 }
 
-vec operator*(const vec& lhs, const double& rhs) {
-    vec ret = lhs;
-    for (int i=2; i--; ret[i]*=rhs);
+template<int n> vec<n> operator*(const double& rhs, const vec<n> &lhs) {
+    vec<n> ret = lhs;
+    for (int i=n; i--; ret[i]*=rhs);
     return ret;
 }
 
-vec operator/(const vec& lhs, const double& rhs) {
-    vec ret = lhs;
-    for (int i=2; i--; ret[i]/=rhs);
+template<int n> vec<n> operator*(const vec<n>& lhs, const double& rhs) {
+    vec<n> ret = lhs;
+    for (int i=n; i--; ret[i]*=rhs);
     return ret;
 }
+
+template<int n> vec<n> operator/(const vec<n>& lhs, const double& rhs) {
+    vec<n> ret = lhs;
+    for (int i=n; i--; ret[i]/=rhs);
+    return ret;
+}
+
+template<> struct vec<2> {
+    double x = 0, y = 0;
+    double& operator[](const int i)       { return i ? y : x; }
+    double  operator[](const int i) const { return i ? y : x; }
+    double norm2() const { return *this * *this; }
+    double norm()  const { return std::sqrt(norm2()); }
+    vec<2> normalized() { return (*this)/norm(); }
+};
+
+template<> struct vec<3> {
+    double x = 0, y = 0, z = 0;
+    double& operator[](const int i)       { return i ? (1==i ? y : z) : x; }
+    double  operator[](const int i) const { return i ? (1==i ? y : z) : x; }
+    double norm2() const { return *this * *this; }
+    double norm()  const { return std::sqrt(norm2()); }
+    vec<3> normalized() { return (*this)/norm(); }
+};
+
+typedef vec<2> vec2;
+typedef vec<3> vec3;
