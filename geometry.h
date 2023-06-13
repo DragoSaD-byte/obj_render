@@ -1,5 +1,6 @@
 #pragma once
 #include <cmath>
+#include <iostream>
 
 template<class type, int n>
 struct vec {
@@ -83,3 +84,22 @@ typedef vec<int, 2> vec2i;
 typedef vec<int, 3> vec3i;
 typedef vec<float, 2> vec2f;
 typedef vec<float, 3> vec3f;
+
+
+struct matrix {
+    float data[4][4];
+	matrix() {
+		for (int i=0; i<4; i++) {
+			for (int j=0; j<4; j++) {
+				data[i][j] = (i==j ? 1.f : 0.f);
+			}
+		}
+	};
+	float* operator[](const int i)       { return data[i]; }
+    const float *  operator[](const int i) const { return data[i]; }
+};
+
+
+matrix operator*(const matrix& a, const matrix& b);
+
+vec<float, 3> operator*(const matrix& a, const vec<float, 3>& b);

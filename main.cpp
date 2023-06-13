@@ -1,8 +1,11 @@
 #include "tgaimage.h"
-#include "geometry.hpp"
 #include "parser.h"
+#include "geometry.h"
+#include <iostream>
 
 void triangle(vec3f t0, vec3f t1, vec3f t2, TGAImage &image, TGAColor color);
+matrix lookat(vec3f eye, vec3f center, vec3f up);
+matrix viewport(int x, int y, int w, int h);
 
 const int width  = 800;
 const int height = 800;
@@ -10,8 +13,11 @@ const int depth  = 255;
 
 Model *model = NULL;
 int *zbuffer = NULL;
-vec3f light_dir{0,0,-1};
 
+vec3f eye{1,1,3};
+vec3f center{0,0,0};
+vec3f up{1,0,0};
+vec3f light_dir = eye.normalized();
 
 int main(int argc, char** argv) {
     if (2==argc) {
@@ -19,6 +25,11 @@ int main(int argc, char** argv) {
     } else {
         model = new Model("obj/african_head.obj");
     }
+	
+	matrix ModelView  = lookat(eye, center, up);
+	matrix Projection = matrix();
+	matrix ViewPort   = viewport(width/8, height/8, width*3/4, height*3/4);
+	Projection[3][2] = -1.f/(eye-center).norm();
 
 	zbuffer = new int[width*height];
     for (int i=0; i<width*height; i++) {
@@ -27,27 +38,61 @@ int main(int argc, char** argv) {
 
     TGAImage image(width, height, TGAImage::RGB);
 	for (int i=0; i<model->nfaces(); i++) {
+		if(i%16 == 0) {
+		std::cout << i << '/' << model->nfaces() << '\n';
+		}
 		std::vector<int> face = model->face(i);
 		vec3f screen_coords[3];
 		vec3f world_coords[3];
 		for (int j=0; j<3; j++) {
 			vec3f v = model->vert(face[j]);
-			screen_coords[j] = vec3f{(v.x+1.)*width/2., (v.y+1.)*height/2., (v.z+1.)*255/2.};
+			screen_coords[j] = ViewPort*(Projection*ModelView*(v));
 			world_coords[j]  = v;
 		}
 		vec3f n = (world_coords[2]-world_coords[0])^(world_coords[1]-world_coords[0]);
 		n = n.normalized();
-		float intensity = n*light_dir;
+		float intensity = -(n*light_dir);
 		if (intensity>0) {
 			triangle(screen_coords[0], screen_coords[1], screen_coords[2], image, TGAColor(intensity*255, intensity*255, intensity*255, 255));
+		}
+		else {
+			triangle(screen_coords[0], screen_coords[1], screen_coords[2], image, TGAColor(1, 1, 1, 255));
 		}
 	}
 
 
     image.flip_vertically();
     image.write_tga_file("output.tga");
+	std::cout << "Finish!!";
     delete model;
     return 0;
+}
+
+
+matrix viewport(int x, int y, int w, int h) {
+    matrix m = matrix();
+    m[0][3] = x+w/2.f;
+    m[1][3] = y+h/2.f;
+    m[2][3] = depth/2.f;
+
+    m[0][0] = w/2.f;
+    m[1][1] = h/2.f;
+    m[2][2] = depth/2.f;
+    return m;
+}
+
+matrix lookat(vec3f eye, vec3f center, vec3f up) {
+    vec3f z = (center-eye).normalized();
+    vec3f x =  (up^z).normalized();
+    vec3f y =  (z^x).normalized();
+    matrix res = matrix();
+    for (int i=0; i<3; i++) {
+        res[0][i] = -x[i];
+        res[1][i] = y[i];
+        res[2][i] = -z[i];
+        res[i][3] = -center[i];
+    }
+    return res;
 }
 
 
@@ -69,6 +114,7 @@ void triangle(vec3f t0, vec3f t1, vec3f t2, TGAImage &image, TGAColor color) {
             float phi = B.x==A.x ? 1. : (float)(j-A.x)/(float)(B.x-A.x);
             vec3f P = (A) + (B-A)*phi;
             int idx = int(P.x)+int(P.y)*width;
+			if (P.x>=width||P.y>=height||P.x<0||P.y<0) continue;
             if (zbuffer[idx]<P.z) {
                 zbuffer[idx] = P.z;
                 image.set(int(P.x+0.5), int(P.y+0.5), color);
@@ -76,34 +122,3 @@ void triangle(vec3f t0, vec3f t1, vec3f t2, TGAImage &image, TGAColor color) {
         }
     }
 }
-
-
-
-void drow_line(vec2i t0, vec2i t1, TGAImage& image, TGAColor& color) {
-	int x0{t0.x};
-	int x1{t1.x};
-	int y0{t0.y};
-	int y1{t1.y};
-	
-    bool steep = false;
-    if (std::abs(x0-x1)<std::abs(y0-y1)) {
-        std::swap(x0, y0);
-        std::swap(x1, y1);
-        steep = true;
-    }
-    if (x0>x1) {
-        std::swap(x0, x1);
-        std::swap(y0, y1);
-    }
-
-    for (int x=x0; x<=x1; x++) {
-        float t = (x-x0)/(float)(x1-x0);
-        int y = y0*(1.-t) + y1*t;
-        if (steep) {
-            image.set(y, x, color); 
-        } else {
-            image.set(x, y, color);
-        }
-    }
-}
-
