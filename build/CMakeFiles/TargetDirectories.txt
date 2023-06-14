@@ -1,4 +1,0 @@
-C:/_progects/obj_render/build/CMakeFiles/Render.dir
-C:/_progects/obj_render/build/CMakeFiles/Test.dir
-C:/_progects/obj_render/build/CMakeFiles/edit_cache.dir
-C:/_progects/obj_render/build/CMakeFiles/rebuild_cache.dir
