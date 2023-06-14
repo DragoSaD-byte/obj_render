@@ -1,0 +1,89 @@
+\hypertarget{class_t_g_a_image}{}\doxysection{TGAImage Class Reference}
+\label{class_t_g_a_image}\index{TGAImage@{TGAImage}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_acd41e9399e944e4d5dbc3d4e8dbe199d}\label{class_t_g_a_image_acd41e9399e944e4d5dbc3d4e8dbe199d}} 
+enum {\bfseries Format} \{ {\bfseries GRAYSCALE} =1
+, {\bfseries RGB} =3
+, {\bfseries RGBA} =4
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_a71c89ee2f760f68af17e79d9839f2670}\label{class_t_g_a_image_a71c89ee2f760f68af17e79d9839f2670}} 
+{\bfseries TGAImage} (int w, int h, int bpp)
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_ace9b4199c62051cb5735288c0a74d866}\label{class_t_g_a_image_ace9b4199c62051cb5735288c0a74d866}} 
+{\bfseries TGAImage} (const \mbox{\hyperlink{class_t_g_a_image}{TGAImage}} \&img)
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_a4ebada0ee5a84be6296966a8db5ec556}\label{class_t_g_a_image_a4ebada0ee5a84be6296966a8db5ec556}} 
+bool {\bfseries read\+\_\+tga\+\_\+file} (const char $\ast$filename)
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_a8659d0255565e0fb2180a78c5830c85c}\label{class_t_g_a_image_a8659d0255565e0fb2180a78c5830c85c}} 
+bool {\bfseries write\+\_\+tga\+\_\+file} (const char $\ast$filename, bool rle=true)
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_a44ea3b7c3cbae84ec9d6ea47c52889fe}\label{class_t_g_a_image_a44ea3b7c3cbae84ec9d6ea47c52889fe}} 
+bool {\bfseries flip\+\_\+horizontally} ()
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_a0634a35dcfe7c378c1bf9f1797573180}\label{class_t_g_a_image_a0634a35dcfe7c378c1bf9f1797573180}} 
+bool {\bfseries flip\+\_\+vertically} ()
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_a578165f9de10f95d882cd490b4f3634f}\label{class_t_g_a_image_a578165f9de10f95d882cd490b4f3634f}} 
+bool {\bfseries scale} (int w, int h)
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_a42b47f4e9e8fbaf577fd9e826d00e011}\label{class_t_g_a_image_a42b47f4e9e8fbaf577fd9e826d00e011}} 
+\mbox{\hyperlink{struct_t_g_a_color}{TGAColor}} {\bfseries get} (int x, int y)
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_a34d702eee32a232e4c07fca0b35a2a48}\label{class_t_g_a_image_a34d702eee32a232e4c07fca0b35a2a48}} 
+bool {\bfseries set} (int x, int y, \mbox{\hyperlink{struct_t_g_a_color}{TGAColor}} c)
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_ad8e1f89de9fe4908f9a326f9a579c0b1}\label{class_t_g_a_image_ad8e1f89de9fe4908f9a326f9a579c0b1}} 
+\mbox{\hyperlink{class_t_g_a_image}{TGAImage}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_t_g_a_image}{TGAImage}} \&img)
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_a7f4fc3ed4681794265dda9de40901c4c}\label{class_t_g_a_image_a7f4fc3ed4681794265dda9de40901c4c}} 
+int {\bfseries get\+\_\+width} ()
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_ace38afffc9190e587ae4131f9e8eff75}\label{class_t_g_a_image_ace38afffc9190e587ae4131f9e8eff75}} 
+int {\bfseries get\+\_\+height} ()
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_a76fe0fa4c0f07325df8cb03b4776f6ed}\label{class_t_g_a_image_a76fe0fa4c0f07325df8cb03b4776f6ed}} 
+int {\bfseries get\+\_\+bytespp} ()
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_aed4bdaf93999de486033d0c897882c67}\label{class_t_g_a_image_aed4bdaf93999de486033d0c897882c67}} 
+unsigned char $\ast$ {\bfseries buffer} ()
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_a9aa8fa984ac190303063ce3ef794555e}\label{class_t_g_a_image_a9aa8fa984ac190303063ce3ef794555e}} 
+void {\bfseries clear} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_af39d7d3946ce82d0ef57fcea86a993ea}\label{class_t_g_a_image_af39d7d3946ce82d0ef57fcea86a993ea}} 
+bool {\bfseries load\+\_\+rle\+\_\+data} (std\+::ifstream \&in)
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_a5fbef3f9c83b957197f23f0f1b321efc}\label{class_t_g_a_image_a5fbef3f9c83b957197f23f0f1b321efc}} 
+bool {\bfseries unload\+\_\+rle\+\_\+data} (std\+::ofstream \&out)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_afd06806bae721d61ae49a600ef26e6d1}\label{class_t_g_a_image_afd06806bae721d61ae49a600ef26e6d1}} 
+unsigned char $\ast$ {\bfseries data}
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_aeff3ad848265a0963558565c4cd3ff7c}\label{class_t_g_a_image_aeff3ad848265a0963558565c4cd3ff7c}} 
+int {\bfseries width}
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_acc1d453f77bf82c48c9cef8e111a7ecf}\label{class_t_g_a_image_acc1d453f77bf82c48c9cef8e111a7ecf}} 
+int {\bfseries height}
+\item 
+\mbox{\Hypertarget{class_t_g_a_image_a3bc2a6c8a3907fd7905ea3eb04271aca}\label{class_t_g_a_image_a3bc2a6c8a3907fd7905ea3eb04271aca}} 
+int {\bfseries bytespp}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+tgaimage.\+h\item 
+tgaimage.\+cpp\end{DoxyCompactItemize}

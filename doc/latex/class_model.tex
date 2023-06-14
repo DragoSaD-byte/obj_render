@@ -1,0 +1,92 @@
+\hypertarget{class_model}{}\doxysection{Model Class Reference}
+\label{class_model}\index{Model@{Model}}
+
+
+Класс, представляющий модель, загруженную из файла  
+
+
+
+
+{\ttfamily \#include $<$parser.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_model_a0fa1a19661461b0c915e0459d6524972}{Model}} (const char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Конструктор класса \mbox{\hyperlink{class_model}{Model}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_model_a8ed0353836f28021ae98d597a435075b}\label{class_model_a8ed0353836f28021ae98d597a435075b}} 
+int {\bfseries nverts} ()
+\begin{DoxyCompactList}\small\item\em Деструктор класса Mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_model_af4fbb47b4a32a0ea49733220c57ad359}\label{class_model_af4fbb47b4a32a0ea49733220c57ad359}} 
+int {\bfseries nfaces} ()
+\begin{DoxyCompactList}\small\item\em Возвращает количество вершин в модели \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} \mbox{\hyperlink{class_model_a44b290a3f82c8a80d2042de0ee5b0238}{vert}} (int i)
+\begin{DoxyCompactList}\small\item\em Возвращает количество граней в модели \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_model_ac3a899aea0811f8f21666d4a0fe69ac1}{face}} (int idx)
+\begin{DoxyCompactList}\small\item\em Возвращает грань модели с заданным индексом \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Класс, представляющий модель, загруженную из файла 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_model_a0fa1a19661461b0c915e0459d6524972}\label{class_model_a0fa1a19661461b0c915e0459d6524972}} 
+\index{Model@{Model}!Model@{Model}}
+\index{Model@{Model}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{Model()}{Model()}}
+{\footnotesize\ttfamily Model\+::\+Model (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Конструктор класса \mbox{\hyperlink{class_model}{Model}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Имя файла, из которого будет загружена модель \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_model_ac3a899aea0811f8f21666d4a0fe69ac1}\label{class_model_ac3a899aea0811f8f21666d4a0fe69ac1}} 
+\index{Model@{Model}!face@{face}}
+\index{face@{face}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{face()}{face()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Model\+::face (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+Возвращает грань модели с заданным индексом 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & Индекс грани \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Грань модели с заданным индексом в виде списка граней, входящих в неё 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_model_a44b290a3f82c8a80d2042de0ee5b0238}\label{class_model_a44b290a3f82c8a80d2042de0ee5b0238}} 
+\index{Model@{Model}!vert@{vert}}
+\index{vert@{vert}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{vert()}{vert()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} Model\+::vert (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Возвращает количество граней в модели 
+
+Возвращает вершину модели с заданным индексом 
+\begin{DoxyParams}{Parameters}
+{\em i} & Индекс вершины \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Вершина модели с заданным индексом в виде вектора (vec3f) координат 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{parser_8h}{parser.\+h}}\item 
+parser.\+cpp\end{DoxyCompactItemize}

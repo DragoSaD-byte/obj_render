@@ -1,0 +1,20 @@
+\hypertarget{parser_8h_source}{}\doxysection{parser.\+h}
+\mbox{\hyperlink{parser_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{geometry_8h}{geometry.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_model}{Model}} \{}
+\DoxyCodeLine{13 \textcolor{keyword}{private}:}
+\DoxyCodeLine{15     std::vector<vec3f> verts\_; }
+\DoxyCodeLine{17     std::vector<std::vector<int> > faces\_; }
+\DoxyCodeLine{18 \textcolor{keyword}{public}:}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_model}{Model}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *filename); }
+\DoxyCodeLine{24     \mbox{\hyperlink{class_model}{\string~Model}}(); }
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_model_a8ed0353836f28021ae98d597a435075b}{nverts}}(); }
+\DoxyCodeLine{26     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_model_af4fbb47b4a32a0ea49733220c57ad359}{nfaces}}(); }
+\DoxyCodeLine{32     \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} \mbox{\hyperlink{class_model_a44b290a3f82c8a80d2042de0ee5b0238}{vert}}(\textcolor{keywordtype}{int} i); }
+\DoxyCodeLine{38     std::vector<int> \mbox{\hyperlink{class_model_ac3a899aea0811f8f21666d4a0fe69ac1}{face}}(\textcolor{keywordtype}{int} idx); }
+\DoxyCodeLine{39 \};}
+
+\end{DoxyCode}

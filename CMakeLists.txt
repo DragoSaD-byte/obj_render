@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.25) 
-set(CMAKE_CXX_STANDART 20) 
+set(CMAKE_CXX_STANDARD 20)
 project(Render) 
 add_executable(Render main.cpp tgaimage.h tgaimage.cpp geometry.h geometry.cpp parser.cpp parser.h)
+project(Test) 
+add_executable(Test tests.cpp geometry.h geometry.cpp parser.cpp parser.h)

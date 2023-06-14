@@ -1,0 +1,277 @@
+\hypertarget{geometry_8h}{}\doxysection{geometry.\+h File Reference}
+\label{geometry_8h}\index{geometry.h@{geometry.h}}
+
+
+Определение некоторых структур (вектор длинны n и матрица 4 на 4), необходимых для более удобной работы с геометрией.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvec}{vec$<$ n $>$}}
+\begin{DoxyCompactList}\small\item\em Шаблон структуры vec, представляющий вектор размерности n. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structvec_3_012_01_4}{vec$<$ 2 $>$}}
+\item 
+struct \mbox{\hyperlink{structvec_3_013_01_4}{vec$<$ 3 $>$}}
+\item 
+struct \mbox{\hyperlink{structmatrix}{matrix}}
+\begin{DoxyCompactList}\small\item\em Структура matrix, представляющая 4x4 матрицу. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{geometry_8h_a8e6946100d7b8efce952111a0407d9b9}\label{geometry_8h_a8e6946100d7b8efce952111a0407d9b9}} 
+typedef \mbox{\hyperlink{structvec}{vec}}$<$ 2 $>$ {\bfseries vec2f}
+\item 
+\mbox{\Hypertarget{geometry_8h_aa94acee8ccc5d5dcb57602860d4d228e}\label{geometry_8h_aa94acee8ccc5d5dcb57602860d4d228e}} 
+typedef \mbox{\hyperlink{structvec}{vec}}$<$ 3 $>$ {\bfseries vec3f}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$int n$>$ }\\float \mbox{\hyperlink{geometry_8h_a4be7d43630a3b95318773af31d4b350e}{operator$\ast$}} (const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&lhs, const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Оператор скалярного произведения двух векторов. \end{DoxyCompactList}\item 
+{\footnotesize template$<$int n$>$ }\\\mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \mbox{\hyperlink{geometry_8h_ae47e5d9b8f482c7010c6578c4d6d8509}{operator+}} (const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&lhs, const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Оператор сложения двух векторов. \end{DoxyCompactList}\item 
+{\footnotesize template$<$int n$>$ }\\\mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \mbox{\hyperlink{geometry_8h_a6a1fc026e888d0f96569a3a2c33273da}{operator-\/}} (const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&lhs, const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Оператор вычитания двух векторов. \end{DoxyCompactList}\item 
+{\footnotesize template$<$int n$>$ }\\\mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \mbox{\hyperlink{geometry_8h_a6299a16e9481e39bfef662f554340125}{operator$\ast$}} (const double \&lhs, const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em Оператор умножения вектора на скаляр слева. \end{DoxyCompactList}\item 
+{\footnotesize template$<$int n$>$ }\\\mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \mbox{\hyperlink{geometry_8h_a2673f4709e7b63ba4062620e38d65dcd}{operator$\ast$}} (const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&lhs, const double \&rhs)
+\begin{DoxyCompactList}\small\item\em Оператор умножения вектора на скаляр справа. \end{DoxyCompactList}\item 
+{\footnotesize template$<$int n$>$ }\\\mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \mbox{\hyperlink{geometry_8h_ac6b4224209ea4efb192c08625ce04a05}{operator/}} (const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&lhs, const double \&rhs)
+\begin{DoxyCompactList}\small\item\em Оператор деления вектора на скаляр. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structmatrix}{matrix}} \mbox{\hyperlink{geometry_8h_a835ad95588532ab57d28e4c23ee565c0}{operator$\ast$}} (const \mbox{\hyperlink{structmatrix}{matrix}} \&a, const \mbox{\hyperlink{structmatrix}{matrix}} \&b)
+\begin{DoxyCompactList}\small\item\em Оператор умножения двух матриц. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} \mbox{\hyperlink{geometry_8h_acf9290e3a8efb2151960770c333e30df}{operator$\ast$}} (const \mbox{\hyperlink{structmatrix}{matrix}} \&a, const \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} \&b)
+\begin{DoxyCompactList}\small\item\em Оператор умножения матрицы на вектор. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} \mbox{\hyperlink{geometry_8h_a59be81365f02f2ab922c6e51a1b1f279}{operator$^\wedge$}} (const \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} \&lhs, const \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Оператор векторного произведения двух векторов типа vec3f. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Определение некоторых структур (вектор длинны n и матрица 4 на 4), необходимых для более удобной работы с геометрией. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{geometry_8h_a6299a16e9481e39bfef662f554340125}\label{geometry_8h_a6299a16e9481e39bfef662f554340125}} 
+\index{geometry.h@{geometry.h}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!geometry.h@{geometry.h}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$int n$>$ \\
+\mbox{\hyperlink{structvec}{vec}}$<$ n $>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const double \&}]{lhs,  }\item[{const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Оператор умножения вектора на скаляр слева. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em n} & Размерность вектора. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & Скалярное значение. \\
+\hline
+{\em rhs} & Вектор. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Результат умножения вектора на скаляр справа. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{geometry_8h_a835ad95588532ab57d28e4c23ee565c0}\label{geometry_8h_a835ad95588532ab57d28e4c23ee565c0}} 
+\index{geometry.h@{geometry.h}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!geometry.h@{geometry.h}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmatrix}{matrix}} operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structmatrix}{matrix}} \&}]{a,  }\item[{const \mbox{\hyperlink{structmatrix}{matrix}} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Оператор умножения двух матриц. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Левая матрица. \\
+\hline
+{\em b} & Правая матрица. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Результат умножения двух матриц. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{geometry_8h_acf9290e3a8efb2151960770c333e30df}\label{geometry_8h_acf9290e3a8efb2151960770c333e30df}} 
+\index{geometry.h@{geometry.h}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!geometry.h@{geometry.h}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structmatrix}{matrix}} \&}]{a,  }\item[{const \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Оператор умножения матрицы на вектор. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Матрица. \\
+\hline
+{\em b} & Вектор. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Результат умножения матрицы на вектор. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{geometry_8h_a2673f4709e7b63ba4062620e38d65dcd}\label{geometry_8h_a2673f4709e7b63ba4062620e38d65dcd}} 
+\index{geometry.h@{geometry.h}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!geometry.h@{geometry.h}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$int n$>$ \\
+\mbox{\hyperlink{structvec}{vec}}$<$ n $>$ operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&}]{lhs,  }\item[{const double \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Оператор умножения вектора на скаляр справа. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em n} & Размерность вектора. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & Вектор. \\
+\hline
+{\em rhs} & Скалярное значение. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Результат умножения вектора на скаляр слева. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{geometry_8h_a4be7d43630a3b95318773af31d4b350e}\label{geometry_8h_a4be7d43630a3b95318773af31d4b350e}} 
+\index{geometry.h@{geometry.h}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!geometry.h@{geometry.h}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$int n$>$ \\
+float operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Оператор скалярного произведения двух векторов. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em n} & Размерность векторов. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & Левый вектор. \\
+\hline
+{\em rhs} & Правый вектор. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Скалярное произведение векторов. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{geometry_8h_ae47e5d9b8f482c7010c6578c4d6d8509}\label{geometry_8h_ae47e5d9b8f482c7010c6578c4d6d8509}} 
+\index{geometry.h@{geometry.h}!operator+@{operator+}}
+\index{operator+@{operator+}!geometry.h@{geometry.h}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily template$<$int n$>$ \\
+\mbox{\hyperlink{structvec}{vec}}$<$ n $>$ operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Оператор сложения двух векторов. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em n} & Размерность векторов. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & Левый вектор. \\
+\hline
+{\em rhs} & Правый вектор. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Результат сложения векторов. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{geometry_8h_a6a1fc026e888d0f96569a3a2c33273da}\label{geometry_8h_a6a1fc026e888d0f96569a3a2c33273da}} 
+\index{geometry.h@{geometry.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!geometry.h@{geometry.h}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily template$<$int n$>$ \\
+\mbox{\hyperlink{structvec}{vec}}$<$ n $>$ operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Оператор вычитания двух векторов. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em n} & Размерность векторов. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & Левый вектор. \\
+\hline
+{\em rhs} & Правый вектор. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Результат вычитания векторов. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{geometry_8h_ac6b4224209ea4efb192c08625ce04a05}\label{geometry_8h_ac6b4224209ea4efb192c08625ce04a05}} 
+\index{geometry.h@{geometry.h}!operator/@{operator/}}
+\index{operator/@{operator/}!geometry.h@{geometry.h}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily template$<$int n$>$ \\
+\mbox{\hyperlink{structvec}{vec}}$<$ n $>$ operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvec}{vec}}$<$ n $>$ \&}]{lhs,  }\item[{const double \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Оператор деления вектора на скаляр. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em n} & Размерность вектора. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & Вектор. \\
+\hline
+{\em rhs} & Скалярное значение. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Результат деления вектора на скаляр. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & Если делитель равен нулю. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{geometry_8h_a59be81365f02f2ab922c6e51a1b1f279}\label{geometry_8h_a59be81365f02f2ab922c6e51a1b1f279}} 
+\index{geometry.h@{geometry.h}!operator$^\wedge$@{operator$^\wedge$}}
+\index{operator$^\wedge$@{operator$^\wedge$}!geometry.h@{geometry.h}}
+\doxysubsubsection{\texorpdfstring{operator$^\wedge$()}{operator^()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} operator$^\wedge$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Оператор векторного произведения двух векторов типа vec3f. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & Левый вектор. \\
+\hline
+{\em rhs} & Правый вектор. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Векторное произведение двух векторов типа vec3f. 
+\end{DoxyReturn}

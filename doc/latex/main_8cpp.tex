@@ -1,0 +1,104 @@
+\hypertarget{main_8cpp}{}\doxysection{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.cpp@{main.cpp}}
+
+
+Главный файл с точкой входа.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_af856ee7343c4923a4a7a6827197cecfb}{triangle}} (\mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} t0, \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} t1, \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} t2, \mbox{\hyperlink{class_t_g_a_image}{TGAImage}} \&image, \mbox{\hyperlink{struct_t_g_a_color}{TGAColor}} color)
+\begin{DoxyCompactList}\small\item\em Рисует треугольник на изображении \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structmatrix}{matrix}} \mbox{\hyperlink{main_8cpp_a2583837cafe0a4fd67ba3d76c8a6fca5}{lookat}} (\mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} eye, \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} center, \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} up)
+\begin{DoxyCompactList}\small\item\em Создает матрицу вида \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structmatrix}{matrix}} \mbox{\hyperlink{main_8cpp_a3ad516e45045a6c22e96bf94bfd1e484}{viewport}} (int x, int y, int w, int h)
+\begin{DoxyCompactList}\small\item\em Создает матрицу перспективного преобразования \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+int {\bfseries main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_a837aabdd54757cb86d0f66387511753f}\label{main_8cpp_a837aabdd54757cb86d0f66387511753f}} 
+const int {\bfseries width} = 800
+\begin{DoxyCompactList}\small\item\em Ширина изображения (в пикселях) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cpp_ad13e9131f5062934438fa82334e4b2ee}\label{main_8cpp_ad13e9131f5062934438fa82334e4b2ee}} 
+const int {\bfseries height} = 800
+\begin{DoxyCompactList}\small\item\em Высота изображения (в пикселях) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cpp_aabe27b6fe771222fed91509760c8159d}\label{main_8cpp_aabe27b6fe771222fed91509760c8159d}} 
+const int {\bfseries depth} = 255
+\begin{DoxyCompactList}\small\item\em Глубина изображения (в пикселях) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cpp_a57aa5e8dcf6ae065125db38e2b64e7b4}\label{main_8cpp_a57aa5e8dcf6ae065125db38e2b64e7b4}} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_model}{Model}} $>$ {\bfseries model} = NULL
+\begin{DoxyCompactList}\small\item\em Указатель на модель \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cpp_acc2225e60f96230e5c82519fd8b97c83}\label{main_8cpp_acc2225e60f96230e5c82519fd8b97c83}} 
+std\+::unique\+\_\+ptr$<$ int\mbox{[}$\,$\mbox{]}$>$ {\bfseries zbuffer} = NULL
+\begin{DoxyCompactList}\small\item\em Глобальный массив z-\/буфера \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Главный файл с точкой входа. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a2583837cafe0a4fd67ba3d76c8a6fca5}\label{main_8cpp_a2583837cafe0a4fd67ba3d76c8a6fca5}} 
+\index{main.cpp@{main.cpp}!lookat@{lookat}}
+\index{lookat@{lookat}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{lookat()}{lookat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmatrix}{matrix}} lookat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvec_3_013_01_4}{vec3f}}}]{eye,  }\item[{\mbox{\hyperlink{structvec_3_013_01_4}{vec3f}}}]{center,  }\item[{\mbox{\hyperlink{structvec_3_013_01_4}{vec3f}}}]{up }\end{DoxyParamCaption})}
+
+
+
+Создает матрицу вида 
+
+
+\begin{DoxyParams}{Parameters}
+{\em eye} & Позиция камеры \\
+\hline
+{\em center} & Точка, на которую камера смотрит \\
+\hline
+{\em up} & Вектор, задающий направление \char`\"{}вверх\char`\"{} для камеры \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Матрица вида 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_af856ee7343c4923a4a7a6827197cecfb}\label{main_8cpp_af856ee7343c4923a4a7a6827197cecfb}} 
+\index{main.cpp@{main.cpp}!triangle@{triangle}}
+\index{triangle@{triangle}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{triangle()}{triangle()}}
+{\footnotesize\ttfamily void triangle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvec_3_013_01_4}{vec3f}}}]{t0,  }\item[{\mbox{\hyperlink{structvec_3_013_01_4}{vec3f}}}]{t1,  }\item[{\mbox{\hyperlink{structvec_3_013_01_4}{vec3f}}}]{t2,  }\item[{\mbox{\hyperlink{class_t_g_a_image}{TGAImage}} \&}]{image,  }\item[{\mbox{\hyperlink{struct_t_g_a_color}{TGAColor}}}]{color }\end{DoxyParamCaption})}
+
+
+
+Рисует треугольник на изображении 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t0,t1,t2} & Вершины треугольника в пространстве экранных координат \\
+\hline
+{\em image} & Изображение, на котором рисуется треугольник \\
+\hline
+{\em color} & Цвет треугольника \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_a3ad516e45045a6c22e96bf94bfd1e484}\label{main_8cpp_a3ad516e45045a6c22e96bf94bfd1e484}} 
+\index{main.cpp@{main.cpp}!viewport@{viewport}}
+\index{viewport@{viewport}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{viewport()}{viewport()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmatrix}{matrix}} viewport (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})}
+
+
+
+Создает матрицу перспективного преобразования 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x,y,w,h} & Определяют положение и размеры области вывода в пространстве экранных координат \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Матрица перспективного преобразования 
+\end{DoxyReturn}
