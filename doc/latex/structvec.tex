@@ -1,0 +1,124 @@
+\hypertarget{structvec}{}\doxysection{vec\texorpdfstring{$<$}{<} n \texorpdfstring{$>$}{>} Struct Template Reference}
+\label{structvec}\index{vec$<$ n $>$@{vec$<$ n $>$}}
+
+
+Шаблон структуры vec, представляющий вектор размерности n.  
+
+
+
+
+{\ttfamily \#include $<$geometry.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \& \mbox{\hyperlink{structvec_a95e689a6745ead4fbd414e664396ee1b}{operator\mbox{[}$\,$\mbox{]}}} (const int i)
+\begin{DoxyCompactList}\small\item\em Оператор доступа к элементу вектора по ссылке. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structvec_a70327d77565ba0d6a34e112249fd927b}{operator\mbox{[}$\,$\mbox{]}}} (const int i) const
+\begin{DoxyCompactList}\small\item\em Оператор доступа к элементу вектора по значению. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structvec_a9756d02e3e35528dfec1212ebf05f7a6}{norm2}} () const
+\begin{DoxyCompactList}\small\item\em Вычисляет квадрат нормы вектора. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structvec_af1bb908d7cd4a71ec9ad367c1c502d7d}{norm}} () const
+\begin{DoxyCompactList}\small\item\em Вычисляет норму вектора. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structvec_ab273f6dd84436c92a7194b8c25a7ef7d}\label{structvec_ab273f6dd84436c92a7194b8c25a7ef7d}} 
+float {\bfseries data} \mbox{[}n\mbox{]} = \{0\}
+\begin{DoxyCompactList}\small\item\em Элементы вектора. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$int n$>$\newline
+struct vec$<$ n $>$}
+Шаблон структуры vec, представляющий вектор размерности n. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em n} & Размерность вектора. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structvec_af1bb908d7cd4a71ec9ad367c1c502d7d}\label{structvec_af1bb908d7cd4a71ec9ad367c1c502d7d}} 
+\index{vec$<$ n $>$@{vec$<$ n $>$}!norm@{norm}}
+\index{norm@{norm}!vec$<$ n $>$@{vec$<$ n $>$}}
+\doxysubsubsection{\texorpdfstring{norm()}{norm()}}
+{\footnotesize\ttfamily template$<$int n$>$ \\
+double \mbox{\hyperlink{structvec}{vec}}$<$ n $>$\+::norm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Вычисляет норму вектора. 
+
+\begin{DoxyReturn}{Returns}
+Норма вектора. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structvec_a9756d02e3e35528dfec1212ebf05f7a6}\label{structvec_a9756d02e3e35528dfec1212ebf05f7a6}} 
+\index{vec$<$ n $>$@{vec$<$ n $>$}!norm2@{norm2}}
+\index{norm2@{norm2}!vec$<$ n $>$@{vec$<$ n $>$}}
+\doxysubsubsection{\texorpdfstring{norm2()}{norm2()}}
+{\footnotesize\ttfamily template$<$int n$>$ \\
+float \mbox{\hyperlink{structvec}{vec}}$<$ n $>$\+::norm2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Вычисляет квадрат нормы вектора. 
+
+\begin{DoxyReturn}{Returns}
+Квадрат нормы вектора. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structvec_a95e689a6745ead4fbd414e664396ee1b}\label{structvec_a95e689a6745ead4fbd414e664396ee1b}} 
+\index{vec$<$ n $>$@{vec$<$ n $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!vec$<$ n $>$@{vec$<$ n $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$int n$>$ \\
+float \& \mbox{\hyperlink{structvec}{vec}}$<$ n $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Оператор доступа к элементу вектора по ссылке. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Индекс элемента. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на элемент вектора с заданным индексом. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & Если индекс выходит за пределы размерности вектора. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{structvec_a70327d77565ba0d6a34e112249fd927b}\label{structvec_a70327d77565ba0d6a34e112249fd927b}} 
+\index{vec$<$ n $>$@{vec$<$ n $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!vec$<$ n $>$@{vec$<$ n $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$int n$>$ \\
+float \mbox{\hyperlink{structvec}{vec}}$<$ n $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Оператор доступа к элементу вектора по значению. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Индекс элемента. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Значение элемента вектора с заданным индексом. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & Если индекс выходит за пределы размерности вектора. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{geometry_8h}{geometry.\+h}}\end{DoxyCompactItemize}

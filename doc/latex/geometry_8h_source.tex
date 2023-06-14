@@ -1,0 +1,139 @@
+\hypertarget{geometry_8h_source}{}\doxysection{geometry.\+h}
+\mbox{\hyperlink{geometry_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{17 \textcolor{keyword}{template} <\textcolor{keywordtype}{int} n>}
+\DoxyCodeLine{18 \textcolor{keyword}{struct }\mbox{\hyperlink{structvec}{vec}} \{}
+\DoxyCodeLine{22   \textcolor{keywordtype}{float} \mbox{\hyperlink{structvec_ab273f6dd84436c92a7194b8c25a7ef7d}{data}}[n] = \{0\};}
+\DoxyCodeLine{30   \textcolor{keywordtype}{float}\& \mbox{\hyperlink{structvec_a95e689a6745ead4fbd414e664396ee1b}{operator[]}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} i) \{}
+\DoxyCodeLine{31     \textcolor{keywordflow}{if} (i >= n) \{}
+\DoxyCodeLine{32       \textcolor{keywordflow}{throw} std::invalid\_argument(}
+\DoxyCodeLine{33           \textcolor{stringliteral}{"{}The length of the vector is less than the inversion index"{}});}
+\DoxyCodeLine{34     \}}
+\DoxyCodeLine{35     \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec_ab273f6dd84436c92a7194b8c25a7ef7d}{data}}[i];}
+\DoxyCodeLine{36   \}}
+\DoxyCodeLine{44   \textcolor{keywordtype}{float} \mbox{\hyperlink{structvec_a70327d77565ba0d6a34e112249fd927b}{operator[]}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{45     \textcolor{keywordflow}{if} (i >= n) \{}
+\DoxyCodeLine{46       \textcolor{keywordflow}{throw} std::invalid\_argument(}
+\DoxyCodeLine{47           \textcolor{stringliteral}{"{}The length of the vector is less than the inversion index"{}});}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49     \textcolor{keywordflow}{return} \mbox{\hyperlink{structvec_ab273f6dd84436c92a7194b8c25a7ef7d}{data}}[i];}
+\DoxyCodeLine{50   \}}
+\DoxyCodeLine{55   \textcolor{keywordtype}{float} \mbox{\hyperlink{structvec_a9756d02e3e35528dfec1212ebf05f7a6}{norm2}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} *\textcolor{keyword}{this} * *\textcolor{keyword}{this}; \}}
+\DoxyCodeLine{60   \textcolor{keywordtype}{double} \mbox{\hyperlink{structvec_af1bb908d7cd4a71ec9ad367c1c502d7d}{norm}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} std::sqrt(\mbox{\hyperlink{structvec_a9756d02e3e35528dfec1212ebf05f7a6}{norm2}}()); \}}
+\DoxyCodeLine{61 \};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{71 \textcolor{keyword}{template} <\textcolor{keywordtype}{int} n>}
+\DoxyCodeLine{72 \textcolor{keywordtype}{float} \mbox{\hyperlink{geometry_8h_a4be7d43630a3b95318773af31d4b350e}{operator*}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec}{vec<n>}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structvec}{vec<n>}}\& rhs) \{}
+\DoxyCodeLine{73   \textcolor{keywordtype}{float} ret = 0;}
+\DoxyCodeLine{74   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = n; i-\/-\/; ret += lhs[i] * rhs[i])}
+\DoxyCodeLine{75     ;}
+\DoxyCodeLine{76   \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{77 \}}
+\DoxyCodeLine{86 \textcolor{keyword}{template} <\textcolor{keywordtype}{int} n>}
+\DoxyCodeLine{87 \mbox{\hyperlink{structvec}{vec<n>}} \mbox{\hyperlink{geometry_8h_ae47e5d9b8f482c7010c6578c4d6d8509}{operator+}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec}{vec<n>}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structvec}{vec<n>}}\& rhs) \{}
+\DoxyCodeLine{88   \mbox{\hyperlink{structvec}{vec<n>}} ret = lhs;}
+\DoxyCodeLine{89   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = n; i-\/-\/; ret[i] += rhs[i])}
+\DoxyCodeLine{90     ;}
+\DoxyCodeLine{91   \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{92 \}}
+\DoxyCodeLine{101 \textcolor{keyword}{template} <\textcolor{keywordtype}{int} n>}
+\DoxyCodeLine{102 \mbox{\hyperlink{structvec}{vec<n>}} \mbox{\hyperlink{geometry_8h_a6a1fc026e888d0f96569a3a2c33273da}{operator-\/}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec}{vec<n>}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structvec}{vec<n>}}\& rhs) \{}
+\DoxyCodeLine{103   \mbox{\hyperlink{structvec}{vec<n>}} ret = lhs;}
+\DoxyCodeLine{104   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = n; i-\/-\/; ret[i] -\/= rhs[i])}
+\DoxyCodeLine{105     ;}
+\DoxyCodeLine{106   \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{107 \}}
+\DoxyCodeLine{116 \textcolor{keyword}{template} <\textcolor{keywordtype}{int} n>}
+\DoxyCodeLine{117 \mbox{\hyperlink{structvec}{vec<n>}} \mbox{\hyperlink{geometry_8h_a4be7d43630a3b95318773af31d4b350e}{operator*}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structvec}{vec<n>}}\& rhs) \{}
+\DoxyCodeLine{118   \mbox{\hyperlink{structvec}{vec<n>}} ret = rhs;}
+\DoxyCodeLine{119   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = n; i-\/-\/; ret[i] *= lhs)}
+\DoxyCodeLine{120     ;}
+\DoxyCodeLine{121   \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{122 \}}
+\DoxyCodeLine{131 \textcolor{keyword}{template} <\textcolor{keywordtype}{int} n>}
+\DoxyCodeLine{132 \mbox{\hyperlink{structvec}{vec<n>}} \mbox{\hyperlink{geometry_8h_a4be7d43630a3b95318773af31d4b350e}{operator*}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec}{vec<n>}}\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& rhs) \{}
+\DoxyCodeLine{133   \mbox{\hyperlink{structvec}{vec<n>}} ret = lhs;}
+\DoxyCodeLine{134   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = n; i-\/-\/; ret[i] *= rhs)}
+\DoxyCodeLine{135     ;}
+\DoxyCodeLine{136   \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{137 \}}
+\DoxyCodeLine{147 \textcolor{keyword}{template} <\textcolor{keywordtype}{int} n>}
+\DoxyCodeLine{148 \mbox{\hyperlink{structvec}{vec<n>}} \mbox{\hyperlink{geometry_8h_ac6b4224209ea4efb192c08625ce04a05}{operator/}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec}{vec<n>}}\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& rhs) \{}
+\DoxyCodeLine{149   \textcolor{keywordflow}{if} (rhs == 0) \{}
+\DoxyCodeLine{150     \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}Division of a vector by zero"{}});}
+\DoxyCodeLine{151   \}}
+\DoxyCodeLine{152   \mbox{\hyperlink{structvec}{vec<n>}} ret = lhs;}
+\DoxyCodeLine{153   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = n; i-\/-\/; ret[i] /= rhs)}
+\DoxyCodeLine{154     ;}
+\DoxyCodeLine{155   \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{156 \}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{keyword}{template} <>}
+\DoxyCodeLine{159 \textcolor{keyword}{struct }\mbox{\hyperlink{structvec}{vec}}<2> \{}
+\DoxyCodeLine{160   \textcolor{keywordtype}{float} x = 0, y = 0;}
+\DoxyCodeLine{161   \textcolor{keywordtype}{float}\& \mbox{\hyperlink{structvec_a95e689a6745ead4fbd414e664396ee1b}{operator[]}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} i) \{}
+\DoxyCodeLine{162     \textcolor{keywordflow}{if} (i > 2) \{}
+\DoxyCodeLine{163       \textcolor{keywordflow}{throw} std::invalid\_argument(}
+\DoxyCodeLine{164           \textcolor{stringliteral}{"{}The length of the vector is less than the inversion index"{}});}
+\DoxyCodeLine{165     \}}
+\DoxyCodeLine{166     \textcolor{keywordflow}{return} i ? y : x;}
+\DoxyCodeLine{167   \}}
+\DoxyCodeLine{168   \textcolor{keywordtype}{float} \mbox{\hyperlink{structvec_a95e689a6745ead4fbd414e664396ee1b}{operator[]}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{169     \textcolor{keywordflow}{if} (i > 2) \{}
+\DoxyCodeLine{170       \textcolor{keywordflow}{throw} std::invalid\_argument(}
+\DoxyCodeLine{171           \textcolor{stringliteral}{"{}The length of the vector is less than the inversion index"{}});}
+\DoxyCodeLine{172     \}}
+\DoxyCodeLine{173     \textcolor{keywordflow}{return} i ? y : x;}
+\DoxyCodeLine{174   \}}
+\DoxyCodeLine{175   \textcolor{keywordtype}{float} \mbox{\hyperlink{structvec_a9756d02e3e35528dfec1212ebf05f7a6}{norm2}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} *\textcolor{keyword}{this} * *\textcolor{keyword}{this}; \}}
+\DoxyCodeLine{176   \textcolor{keywordtype}{double} \mbox{\hyperlink{structvec_af1bb908d7cd4a71ec9ad367c1c502d7d}{norm}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} std::sqrt(\mbox{\hyperlink{structvec_a9756d02e3e35528dfec1212ebf05f7a6}{norm2}}()); \}}
+\DoxyCodeLine{177   \mbox{\hyperlink{structvec}{vec<2>}} normalized() \{ \textcolor{keywordflow}{return} (*\textcolor{keyword}{this}) / \mbox{\hyperlink{structvec_af1bb908d7cd4a71ec9ad367c1c502d7d}{norm}}(); \}}
+\DoxyCodeLine{178 \};}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \textcolor{keyword}{template} <>}
+\DoxyCodeLine{181 \textcolor{keyword}{struct }\mbox{\hyperlink{structvec}{vec}}<3> \{}
+\DoxyCodeLine{182   \textcolor{keywordtype}{float} x = 0, y = 0, z = 0;}
+\DoxyCodeLine{183   \textcolor{keywordtype}{float}\& \mbox{\hyperlink{structvec_a95e689a6745ead4fbd414e664396ee1b}{operator[]}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} i) \{}
+\DoxyCodeLine{184     \textcolor{keywordflow}{if} (i > 2) \{}
+\DoxyCodeLine{185       \textcolor{keywordflow}{throw} std::invalid\_argument(}
+\DoxyCodeLine{186           \textcolor{stringliteral}{"{}The length of the vector is less than the inversion index"{}});}
+\DoxyCodeLine{187     \}}
+\DoxyCodeLine{188     \textcolor{keywordflow}{return} i ? (1 == i ? y : z) : x;}
+\DoxyCodeLine{189   \}}
+\DoxyCodeLine{190   \textcolor{keywordtype}{float} \mbox{\hyperlink{structvec_a95e689a6745ead4fbd414e664396ee1b}{operator[]}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{191     \textcolor{keywordflow}{if} (i > 2) \{}
+\DoxyCodeLine{192       \textcolor{keywordflow}{throw} std::invalid\_argument(}
+\DoxyCodeLine{193           \textcolor{stringliteral}{"{}The length of the vector is less than the inversion index"{}});}
+\DoxyCodeLine{194     \}}
+\DoxyCodeLine{195     \textcolor{keywordflow}{return} i ? (1 == i ? y : z) : x;}
+\DoxyCodeLine{196   \}}
+\DoxyCodeLine{197   \textcolor{keywordtype}{float} \mbox{\hyperlink{structvec_a9756d02e3e35528dfec1212ebf05f7a6}{norm2}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} *\textcolor{keyword}{this} * *\textcolor{keyword}{this}; \}}
+\DoxyCodeLine{198   \textcolor{keywordtype}{double} \mbox{\hyperlink{structvec_af1bb908d7cd4a71ec9ad367c1c502d7d}{norm}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} std::sqrt(\mbox{\hyperlink{structvec_a9756d02e3e35528dfec1212ebf05f7a6}{norm2}}()); \}}
+\DoxyCodeLine{199   \mbox{\hyperlink{structvec}{vec<3>}} normalized() \{ \textcolor{keywordflow}{return} (*\textcolor{keyword}{this}) / \mbox{\hyperlink{structvec_af1bb908d7cd4a71ec9ad367c1c502d7d}{norm}}(); \}}
+\DoxyCodeLine{200 \};}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202 \textcolor{keyword}{typedef} \mbox{\hyperlink{structvec}{vec<2>}} \mbox{\hyperlink{structvec_3_012_01_4}{vec2f}};}
+\DoxyCodeLine{203 \textcolor{keyword}{typedef} \mbox{\hyperlink{structvec}{vec<3>}} \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}};}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{209 \textcolor{keyword}{struct }\mbox{\hyperlink{structmatrix}{matrix}} \{}
+\DoxyCodeLine{213   \textcolor{keywordtype}{float} \mbox{\hyperlink{structmatrix_a545635584fc3c207585d81e3eb183b6e}{data}}[4][4];}
+\DoxyCodeLine{217   \mbox{\hyperlink{structmatrix_a4daf70b1506ea976352f20e4322a9c17}{matrix}}() \{}
+\DoxyCodeLine{218     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 4; i++) \{}
+\DoxyCodeLine{219       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 4; j++) \{}
+\DoxyCodeLine{220         \mbox{\hyperlink{structmatrix_a545635584fc3c207585d81e3eb183b6e}{data}}[i][j] = (i == j ? 1.f : 0.f);}
+\DoxyCodeLine{221       \}}
+\DoxyCodeLine{222     \}}
+\DoxyCodeLine{223   \};}
+\DoxyCodeLine{229   \textcolor{keywordtype}{float}* \mbox{\hyperlink{structmatrix_a113b7909cff8f80fbd897566384dbf25}{operator[]}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} i) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{structmatrix_a545635584fc3c207585d81e3eb183b6e}{data}}[i]; \}}
+\DoxyCodeLine{235   \textcolor{keyword}{const} \textcolor{keywordtype}{float}* \mbox{\hyperlink{structmatrix_a4f0fa6478f3603381262ccc99cd77bda}{operator[]}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{structmatrix_a545635584fc3c207585d81e3eb183b6e}{data}}[i]; \}}
+\DoxyCodeLine{236 \};}
+\DoxyCodeLine{244 \mbox{\hyperlink{structmatrix}{matrix}} \mbox{\hyperlink{geometry_8h_a4be7d43630a3b95318773af31d4b350e}{operator*}}(\textcolor{keyword}{const} \mbox{\hyperlink{structmatrix}{matrix}}\& a, \textcolor{keyword}{const} \mbox{\hyperlink{structmatrix}{matrix}}\& b);}
+\DoxyCodeLine{252 \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} \mbox{\hyperlink{geometry_8h_a4be7d43630a3b95318773af31d4b350e}{operator*}}(\textcolor{keyword}{const} \mbox{\hyperlink{structmatrix}{matrix}}\& a, \textcolor{keyword}{const} \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}}\& b);}
+\DoxyCodeLine{260 \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}} \mbox{\hyperlink{geometry_8h_a59be81365f02f2ab922c6e51a1b1f279}{operator\string^}}(\textcolor{keyword}{const} \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structvec_3_013_01_4}{vec3f}}\& rhs);}
+
+\end{DoxyCode}

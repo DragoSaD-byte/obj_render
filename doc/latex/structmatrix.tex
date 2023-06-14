@@ -1,0 +1,74 @@
+\hypertarget{structmatrix}{}\doxysection{matrix Struct Reference}
+\label{structmatrix}\index{matrix@{matrix}}
+
+
+Структура matrix, представляющая 4x4 матрицу.  
+
+
+
+
+{\ttfamily \#include $<$geometry.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structmatrix_a4daf70b1506ea976352f20e4322a9c17}\label{structmatrix_a4daf70b1506ea976352f20e4322a9c17}} 
+{\bfseries matrix} ()
+\begin{DoxyCompactList}\small\item\em Конструктор, инициализирующий матрицу единичной матрицей. \end{DoxyCompactList}\item 
+float $\ast$ \mbox{\hyperlink{structmatrix_a113b7909cff8f80fbd897566384dbf25}{operator\mbox{[}$\,$\mbox{]}}} (const int i)
+\begin{DoxyCompactList}\small\item\em Оператор доступа к строке матрицы по ссылке. \end{DoxyCompactList}\item 
+const float $\ast$ \mbox{\hyperlink{structmatrix_a4f0fa6478f3603381262ccc99cd77bda}{operator\mbox{[}$\,$\mbox{]}}} (const int i) const
+\begin{DoxyCompactList}\small\item\em Оператор доступа к строке матрицы по значению. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structmatrix_a545635584fc3c207585d81e3eb183b6e}\label{structmatrix_a545635584fc3c207585d81e3eb183b6e}} 
+float {\bfseries data} \mbox{[}4\mbox{]}\mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em Элементы матрицы. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Структура matrix, представляющая 4x4 матрицу. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structmatrix_a113b7909cff8f80fbd897566384dbf25}\label{structmatrix_a113b7909cff8f80fbd897566384dbf25}} 
+\index{matrix@{matrix}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!matrix@{matrix}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily float $\ast$ matrix\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Оператор доступа к строке матрицы по ссылке. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Индекс строки матрицы. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на строку матрицы с заданным индексом. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structmatrix_a4f0fa6478f3603381262ccc99cd77bda}\label{structmatrix_a4f0fa6478f3603381262ccc99cd77bda}} 
+\index{matrix@{matrix}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!matrix@{matrix}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const float $\ast$ matrix\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Оператор доступа к строке матрицы по значению. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Индекс строки матрицы. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Значение строки матрицы с заданным индексом. 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{geometry_8h}{geometry.\+h}}\end{DoxyCompactItemize}

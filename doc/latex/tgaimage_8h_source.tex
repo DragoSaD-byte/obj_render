@@ -1,0 +1,104 @@
+\hypertarget{tgaimage_8h_source}{}\doxysection{tgaimage.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// Этот файл взят из проекта другого человека. }}
+\DoxyCodeLine{2 \textcolor{comment}{// В этом файле содержиться код для работы с tga форматом}}
+\DoxyCodeLine{3 \textcolor{comment}{// https://github.com/ssloy/tinyrenderer/blob/909fe20934ba5334144d2c748805690a1fa4c89f/tgaimage.h}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifndef \_\_IMAGE\_H\_\_}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#define \_\_IMAGE\_H\_\_}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#pragma pack(push,1)}}
+\DoxyCodeLine{10 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_t_g_a___header}{TGA\_Header}} \{}
+\DoxyCodeLine{11     \textcolor{keywordtype}{char} idlength;}
+\DoxyCodeLine{12     \textcolor{keywordtype}{char} colormaptype;}
+\DoxyCodeLine{13     \textcolor{keywordtype}{char} datatypecode;}
+\DoxyCodeLine{14     \textcolor{keywordtype}{short} colormaporigin;}
+\DoxyCodeLine{15     \textcolor{keywordtype}{short} colormaplength;}
+\DoxyCodeLine{16     \textcolor{keywordtype}{char} colormapdepth;}
+\DoxyCodeLine{17     \textcolor{keywordtype}{short} x\_origin;}
+\DoxyCodeLine{18     \textcolor{keywordtype}{short} y\_origin;}
+\DoxyCodeLine{19     \textcolor{keywordtype}{short} width;}
+\DoxyCodeLine{20     \textcolor{keywordtype}{short} height;}
+\DoxyCodeLine{21     \textcolor{keywordtype}{char}  bitsperpixel;}
+\DoxyCodeLine{22     \textcolor{keywordtype}{char}  imagedescriptor;}
+\DoxyCodeLine{23 \};}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#pragma pack(pop)}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_t_g_a_color}{TGAColor}} \{}
+\DoxyCodeLine{29     \textcolor{keyword}{union }\{}
+\DoxyCodeLine{30         \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{31             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} b, g, r, a;}
+\DoxyCodeLine{32         \};}
+\DoxyCodeLine{33         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} raw[4];}
+\DoxyCodeLine{34         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} val;}
+\DoxyCodeLine{35     \};}
+\DoxyCodeLine{36     \textcolor{keywordtype}{int} bytespp;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \mbox{\hyperlink{struct_t_g_a_color}{TGAColor}}() : val(0), bytespp(1) \{}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \mbox{\hyperlink{struct_t_g_a_color}{TGAColor}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} R, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} G, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} B, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} A) : b(B), g(G), r(R), a(A), bytespp(4) \{}
+\DoxyCodeLine{42     \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \mbox{\hyperlink{struct_t_g_a_color}{TGAColor}}(\textcolor{keywordtype}{int} v, \textcolor{keywordtype}{int} bpp) : val(v), bytespp(bpp) \{}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \mbox{\hyperlink{struct_t_g_a_color}{TGAColor}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_g_a_color}{TGAColor}} \&c) : val(c.val), bytespp(c.bytespp) \{}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \mbox{\hyperlink{struct_t_g_a_color}{TGAColor}}(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *p, \textcolor{keywordtype}{int} bpp) : val(0), bytespp(bpp) \{}
+\DoxyCodeLine{51         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<bpp; i++) \{}
+\DoxyCodeLine{52             raw[i] = p[i];}
+\DoxyCodeLine{53         \}}
+\DoxyCodeLine{54     \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \mbox{\hyperlink{struct_t_g_a_color}{TGAColor}} \& operator =(\textcolor{keyword}{const} \mbox{\hyperlink{struct_t_g_a_color}{TGAColor}} \&c) \{}
+\DoxyCodeLine{57         \textcolor{keywordflow}{if} (\textcolor{keyword}{this} != \&c) \{}
+\DoxyCodeLine{58             bytespp = c.bytespp;}
+\DoxyCodeLine{59             val = c.val;}
+\DoxyCodeLine{60         \}}
+\DoxyCodeLine{61         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{62     \}}
+\DoxyCodeLine{63 \};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keyword}{class }\mbox{\hyperlink{class_t_g_a_image}{TGAImage}} \{}
+\DoxyCodeLine{67 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{68     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}* data;}
+\DoxyCodeLine{69     \textcolor{keywordtype}{int} width;}
+\DoxyCodeLine{70     \textcolor{keywordtype}{int} height;}
+\DoxyCodeLine{71     \textcolor{keywordtype}{int} bytespp;}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keywordtype}{bool}   load\_rle\_data(std::ifstream \&in);}
+\DoxyCodeLine{74     \textcolor{keywordtype}{bool} unload\_rle\_data(std::ofstream \&out);}
+\DoxyCodeLine{75 \textcolor{keyword}{public}:}
+\DoxyCodeLine{76     \textcolor{keyword}{enum} Format \{}
+\DoxyCodeLine{77         GRAYSCALE=1, RGB=3, RGBA=4}
+\DoxyCodeLine{78     \};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \mbox{\hyperlink{class_t_g_a_image}{TGAImage}}();}
+\DoxyCodeLine{81     \mbox{\hyperlink{class_t_g_a_image}{TGAImage}}(\textcolor{keywordtype}{int} w, \textcolor{keywordtype}{int} h, \textcolor{keywordtype}{int} bpp);}
+\DoxyCodeLine{82     \mbox{\hyperlink{class_t_g_a_image}{TGAImage}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_t_g_a_image}{TGAImage}} \&img);}
+\DoxyCodeLine{83     \textcolor{keywordtype}{bool} read\_tga\_file(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *filename);}
+\DoxyCodeLine{84     \textcolor{keywordtype}{bool} write\_tga\_file(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *filename, \textcolor{keywordtype}{bool} rle=\textcolor{keyword}{true});}
+\DoxyCodeLine{85     \textcolor{keywordtype}{bool} flip\_horizontally();}
+\DoxyCodeLine{86     \textcolor{keywordtype}{bool} flip\_vertically();}
+\DoxyCodeLine{87     \textcolor{keywordtype}{bool} scale(\textcolor{keywordtype}{int} w, \textcolor{keywordtype}{int} h);}
+\DoxyCodeLine{88     \mbox{\hyperlink{struct_t_g_a_color}{TGAColor}} get(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y);}
+\DoxyCodeLine{89     \textcolor{keywordtype}{bool} set(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y, \mbox{\hyperlink{struct_t_g_a_color}{TGAColor}} c);}
+\DoxyCodeLine{90     \mbox{\hyperlink{class_t_g_a_image}{\string~TGAImage}}();}
+\DoxyCodeLine{91     \mbox{\hyperlink{class_t_g_a_image}{TGAImage}} \& operator =(\textcolor{keyword}{const} \mbox{\hyperlink{class_t_g_a_image}{TGAImage}} \&img);}
+\DoxyCodeLine{92     \textcolor{keywordtype}{int} get\_width();}
+\DoxyCodeLine{93     \textcolor{keywordtype}{int} get\_height();}
+\DoxyCodeLine{94     \textcolor{keywordtype}{int} get\_bytespp();}
+\DoxyCodeLine{95     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *buffer();}
+\DoxyCodeLine{96     \textcolor{keywordtype}{void} clear();}
+\DoxyCodeLine{97 \};}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//\_\_IMAGE\_H\_\_}}
+
+\end{DoxyCode}
